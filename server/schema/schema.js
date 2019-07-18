@@ -18,7 +18,6 @@ const Query = new GraphQLObjectType({
       type: MovieType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-
       }
     }
   }

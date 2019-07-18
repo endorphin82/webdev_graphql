@@ -7,7 +7,7 @@ const PORT = 3005;
 
 app.use("/graphql", graphqlHTTP({
   schema,
-  graphiql: true
+  graphiql: true,
 }));
 
 app.listen(PORT, err => {
