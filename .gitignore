@@ -2,4 +2,4 @@
 .idea/workspace.xml
 server/node_modules/
 server/package-lock.json
-server/package.json
+.idea/jsonSchemas.xml
