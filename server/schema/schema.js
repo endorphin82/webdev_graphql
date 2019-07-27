@@ -5,6 +5,24 @@ const {
   GraphQLID, GraphQLInt, GraphQLList,
 } = graphql;
 
+// const movieJson = {
+// { "name": "Pulp Fiction", "genre": "Crime", "directorId": },
+// { "name": "1984", "genre": "Sci-Fi", "directorId": "5d3be0d27c213e1b35df46fc"},
+// { "name": "V for vendetta", "genre": "Sci-Fi-Triller", "directorId": "5d3be1007c213e1b35df46fd" },
+// { "name": "Snatch", "genre": "Crime-Comedy", "directorId": "5d3be1267c213e1b35df4700" },
+// { "name": "Reservoir Dogs", "genre": "Crime", "directorId": "5d3bdd837c213e1b35df46c0"},
+// { "name": "The Hateful Eight", "genre": "Crime", "directorId": "5d3bdd837c213e1b35df46c0"},
+// { "name": "Inglourious Basterds", "genre": "Crime", "directorId": "5d3bdd837c213e1b35df46c0"},
+// { "name": "Lock, Stock and Two Smoking Barrels", "genre": "Crime-Comedy", "directorId": "5d3be1267c213e1b35df4700"},
+// }
+
+// const directorsJson = {
+// { "name": "Quentin Tarantino", "age": 55 }, // "5d3bdd837c213e1b35df46c0"
+// { "name": "Michael Radford", "age": 72 }, // "5d3be0d27c213e1b35df46fc"
+// { "name": "James McTeigue", "age": 51 }, // "5d3be1007c213e1b35df46fd"
+// { "name": "Guy Ritchie", "age": 50 }, // "5d3be1267c213e1b35df4700"
+// }
+
 const movies = [
   { id: "1", name: "Pulp Fiction", genre: "Crime", directorId: "1" },
   { id: "2", name: "1984", genre: "Sci-Fi", directorId: "2" },
@@ -23,6 +41,7 @@ const directors = [
   { id: "4", name: "Guy Ritchie", age: 50 },
 ];
 
+
 const MovieType = new GraphQLObjectType({
   name: "Movie",
   fields: () => ({
@@ -32,7 +51,7 @@ const MovieType = new GraphQLObjectType({
     director: {
       type: DirectorType,
       resolve(parent, args) {
-        return directors.find(director => director.id == parent.id);
+        // return directors.find(director => director.id == parent.id);
       },
     },
   }),
@@ -47,7 +66,7 @@ const DirectorType = new GraphQLObjectType({
     movies: {
       type: new GraphQLList(MovieType),
       resolve(parent, args) {
-        return movies.filter(movie => movie.directorId == parent.id);
+        // return movies.filter(movie => movie.directorId == parent.id);
       },
     },
   }),
