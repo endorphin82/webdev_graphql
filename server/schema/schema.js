@@ -88,6 +88,17 @@ const DirectorType = new GraphQLObjectType({
 //   "age": 21
 // }
 
+// mutation($id: ID){
+//   deleteDirector(id: $id){
+//     name
+//   }
+// }
+//
+// {
+//   "id": "5d4365c5ba28052afc85d4d9"
+// }
+//
+
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
@@ -119,6 +130,20 @@ const Mutation = new GraphQLObjectType({
           directorId: args.directorId,
         });
         return movie.save();
+      },
+    },
+    deleteDirector: {
+      type: DirectorType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Directors.findByIdAndRemove(args.id);
+      },
+    },
+    deleteMovie: {
+      type: MovieType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Movies.findByIdAndRemove(args.id);
       },
     },
   },
