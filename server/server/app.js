@@ -12,12 +12,12 @@ mongoose.connect("mongodb://air:air123@ds343217.mlab.com:43217/graphql-tutorial"
   { useNewUrlParser: true }, // new mongoose v5+
 );
 
+app.use(cors());
+
 app.use("/graphql", graphqlHTTP({
   schema,
   graphiql: true,
 }));
-
-app.use(cors());
 
 const dbConnection = mongoose.connection;
 dbConnection.on("error", err => {
