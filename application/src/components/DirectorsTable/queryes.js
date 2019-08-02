@@ -1,15 +1,14 @@
 import { gql } from "apollo-boost";
 
-export const moviesQuery = gql`
+export const directorsQuery = gql`
   query movieQuery {
-    movies {
+    directors {
       id
       name
-      genre
-      watched
-      rate
-      director {
+      age
+      movies {
         name
+        id
       }
     }
   }
