@@ -38,8 +38,10 @@ class MoviesForm extends React.Component {
     const { directors = [] } = data;
 
     return (
-      <Dialog onClose={this.handleClose} open={open} aria-labelledby="simple-dialog-title">
-        <DialogTitle className={classes.title} id="simple-dialog-title">Movie information</DialogTitle>
+      <Dialog onClose={this.handleClose} open={open}
+              aria-labelledby="simple-dialog-title">
+        <DialogTitle className={classes.title}
+                     id="simple-dialog-title">Movie information</DialogTitle>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="outlined-name"
@@ -81,17 +83,22 @@ class MoviesForm extends React.Component {
             <Select
               value={directorId}
               onChange={handleSelectChange}
-              input={<OutlinedInput name="directorId" id="outlined-director" labelWidth={57}/>}
+              input={<OutlinedInput name="directorId"
+                                    id="outlined-director" labelWidth={57}/>}
             >
-              {directors.map(director => <MenuItem key={director.id} value={director.id}>{director.name}</MenuItem>)}
+              {directors.map(director => <MenuItem
+                key={director.id} value={director.id}>{director.name}</MenuItem>)}
             </Select>
           </FormControl>
           <div className={classes.wrapper}>
             <FormControlLabel
-              control={<Checkbox checked={watched} onChange={handleCheckboxChange("watched")} value="watched"/>}
+              control={<Checkbox checked={watched}
+                                 onChange={handleCheckboxChange("watched")}
+                                 value="watched"/>}
               label="Watched movie"
             />
-            <Button onClick={this.handleSave} variant="contained" color="primary" className={classes.button}>
+            <Button onClick={this.handleSave} variant="contained"
+                    color="primary" className={classes.button}>
               <SaveIcon/> Save
             </Button>
           </div>
