@@ -1,5 +1,6 @@
 export const styles = theme => ({
   search: {
+    marginBottom: theme.spacing(3),
     position: 'relative',
     width: '100%',
   },
