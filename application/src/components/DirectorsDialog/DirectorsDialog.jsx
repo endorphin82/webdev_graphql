@@ -1,19 +1,22 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import BlockIcon from '@material-ui/icons/Block';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import BlockIcon from "@material-ui/icons/Block";
+
+import withHocs from "./DirectorDialogHoc";
 
 class DirectorsDialog extends React.Component {
 
   handleDelete = () => {
-    const { id, handleClose } = this.props;
+    const { id, handleClose, deleteDirector } = this.props;
+    deleteDirector(id);
     handleClose();
-  }
+  };
 
   render() {
     const { open, handleClose } = this.props;
@@ -33,10 +36,10 @@ class DirectorsDialog extends React.Component {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            <BlockIcon /> Cancel
+            <BlockIcon/> Cancel
           </Button>
           <Button onClick={this.handleDelete} color="primary" autoFocus>
-            <DeleteForeverIcon /> Confirm
+            <DeleteForeverIcon/> Confirm
           </Button>
         </DialogActions>
       </Dialog>
@@ -44,4 +47,4 @@ class DirectorsDialog extends React.Component {
   }
 }
 
-export default DirectorsDialog;
+export default withHocs(DirectorsDialog);
